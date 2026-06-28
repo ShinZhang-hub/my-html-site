@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Osaka Daily Check</title>
+<style>
+body { font-family: -apple-system, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; background: #f5f5f5; }
+h1 { font-size: 1.4rem; }
+h2 { font-size: 1.1rem; margin-top: 24px; }
+.time { color: #666; font-size: .9rem; }
+.summary { margin: 16px 0; padding: 12px; background: #fff; border-radius: 6px; }
+.num { font-weight: 600; color: #1890ff; }
+table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 6px; overflow: hidden; margin: 8px 0 20px; }
+th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #eee; font-size: .9rem; }
+th { background: #fafafa; font-weight: 600; }
+.ok td:last-child { color: #389e0d; }
+.err td:last-child { color: #cf1322; }
+.clickable { cursor: pointer; }
+.clickable:hover { background: #e6f7ff !important; }
+.raw-item { background: #1e1e1e; color: #d4d4d4; padding: 12px 16px; margin: 4px 0; border-radius: 4px; font-size: .8rem; overflow-x: auto; }
+.raw-item.highlight { background: #2b5b84; transition: background 0.1s; }
+details { margin-top: 20px; }
+summary { cursor: pointer; font-size: .95rem; padding: 8px 0; }
+h3 { font-size: .95rem; margin: 16px 0 8px; }
+</style>
+</head>
+<body>
+<h1>Osaka Daily Check</h1>
+<p class="time">2026-06-29 03:14:16</p>
+<div class="summary">✅ Ok: <span class="num">5/8</span> · ❌ Problems: <span class="num">2</span></div>
+
+<h2>Host</h2>
+<table><thead><tr><th>Host</th><th>Status</th></tr></thead><tbody><tr class='clickable err' onclick="highlight('raw-host-0')"><td>大阪 R1 Maxhub</td><td>❌ Error</td></tr>
+<tr class='clickable err' onclick="highlight('raw-host-1')"><td>大阪本地网络</td><td>❌ Unknown</td></tr>
+<tr class='clickable err' onclick="highlight('raw-host-2')"><td>大阪外网访问</td><td>❌ Unknown</td></tr>
+<tr class='clickable ok' onclick="highlight('raw-host-3')"><td>大阪 Main Maxhub</td><td>✅ Ok</td></tr>
+<tr class='clickable ok' onclick="highlight('raw-host-4')"><td>大阪 Printer（JP Tower）</td><td>✅ Ok</td></tr>
+<tr class='clickable ok' onclick="highlight('raw-host-5')"><td>大阪 R660 Server</td><td>✅ Ok</td></tr>
+<tr class='clickable ok' onclick="highlight('raw-host-6')"><td>大阪 Zabbix</td><td>✅ Ok</td></tr>
+<tr class='clickable ok' onclick="highlight('raw-host-7')"><td>东京 Zabbix</td><td>✅ Ok</td></tr>
+</tbody></table>
+
+<h2>Problem</h2>
+<table><thead><tr><th>Host</th><th>Problem</th><th>Severity</th><th>Time</th></tr></thead><tbody><tr class='clickable' onclick="highlight('raw-prob-0')"><td>大阪 R1 Maxhub</td><td>Windows: Zabbix agent is not available (for 3m)</td><td style='color:#fa8c16'>Average</td><td>06-29 01:04</td></tr>
+<tr class='clickable' onclick="highlight('raw-prob-1')"><td>大阪 R1 Maxhub</td><td>Windows: "webthreatdefusersvc_aa249" (Web Threat Defense ユーザー サービス_aa249) is not running (startup type automatic)</td><td style='color:#fa8c16'>Average</td><td>06-27 03:05</td></tr>
+</tbody></table>
+
+<details id="raw-section">
+<summary><strong>Raw Data</strong></summary>
+<h3>Host</h3>
+<pre id="raw-host-0" class="raw-item">{
+  "hostid": "10683",
+  "name": "东京 Zabbix",
+  "status": "0",
+  "interfaces": [
+    {
+      "available": "1"
+    }
+  ]
+}</pre>
+<pre id="raw-host-1" class="raw-item">{
+  "hostid": "10686",
+  "name": "大阪 R660 Server",
+  "status": "0",
+  "interfaces": [
+    {
+      "available": "1"
+    }
+  ]
+}</pre>
+<pre id="raw-host-2" class="raw-item">{
+  "hostid": "10688",
+  "name": "大阪本地网络",
+  "status": "0",
+  "interfaces": []
+}</pre>
+<pre id="raw-host-3" class="raw-item">{
+  "hostid": "10691",
+  "name": "大阪 Main Maxhub",
+  "status": "0",
+  "interfaces": [
+    {
+      "available": "1"
+    }
+  ]
+}</pre>
+<pre id="raw-host-4" class="raw-item">{
+  "hostid": "10084",
+  "name": "大阪 Zabbix",
+  "status": "0",
+  "interfaces": [
+    {
+      "available": "1"
+    }
+  ]
+}</pre>
+<pre id="raw-host-5" class="raw-item">{
+  "hostid": "10689",
+  "name": "大阪外网访问",
+  "status": "0",
+  "interfaces": []
+}</pre>
+<pre id="raw-host-6" class="raw-item">{
+  "hostid": "10684",
+  "name": "大阪 Printer（JP Tower）",
+  "status": "0",
+  "interfaces": [
+    {
+      "available": "1"
+    }
+  ]
+}</pre>
+<pre id="raw-host-7" class="raw-item">{
+  "hostid": "10685",
+  "name": "大阪 R1 Maxhub",
+  "status": "0",
+  "interfaces": [
+    {
+      "available": "2"
+    }
+  ]
+}</pre>
+
+<h3>Problem</h3>
+<pre id="raw-prob-0" class="raw-item">{
+  "eventid": "1239",
+  "objectid": "25453",
+  "clock": "1782662698",
+  "severity": "3",
+  "name": "Windows: Zabbix agent is not available (for 3m)",
+  "acknowledged": "0"
+}</pre>
+<pre id="raw-prob-1" class="raw-item">{
+  "eventid": "380",
+  "objectid": "25578",
+  "clock": "1782497151",
+  "severity": "3",
+  "name": "Windows: \"webthreatdefusersvc_aa249\" (Web Threat Defense ユーザー サービス_aa249) is not running (startup type automatic)",
+  "acknowledged": "0"
+}</pre>
+
+</details>
+
+<script>
+function highlight(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const details = document.getElementById('raw-section');
+  if (!details.open) details.open = true;
+  el.classList.add('highlight');
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  setTimeout(() => el.classList.remove('highlight'), 1500);
+}
+</script>
+</body>
+</html>
